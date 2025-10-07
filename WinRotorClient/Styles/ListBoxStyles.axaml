@@ -1,0 +1,131 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    <Design.PreviewWith>
+        <Border Padding="20" Background="{DynamicResource Surface}">
+            <!-- Add Controls for Previewer Here -->
+            <StackPanel Spacing="20">
+                <ListBox Classes="logs"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                    <ListBox.Items>
+                        <system:String>2024-01-15 10:30:25 - Application started</system:String>
+                        <system:String>2024-01-15 10:30:26 - Loading configuration...</system:String>
+                        <system:String>2024-01-15 10:30:27 - Configuration loaded successfully</system:String>
+                    </ListBox.Items>
+                </ListBox>
+                
+                <ListBox Classes="filePaths"
+                         Height="150"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                    <ListBox.Items>
+                        <Grid >
+                            <StackPanel Orientation="Horizontal" Spacing="20">
+                                <StackPanel Spacing="2">
+                                    <TextBlock Text="My First Project" FontFamily="{DynamicResource Exo2-SemiBold}" FontSize="16"/>
+                                    <TextBlock Text="C:\Users\DomLanLab\Documents\WinRotor\Project1.json" Opacity="0.7" FontSize="12" />
+                                </StackPanel>
+                                
+                                <StackPanel Spacing="8" Margin="0 4 0 0" Orientation="Horizontal">
+                                    <Button Classes="default" Width="35" Height="35" BorderThickness="0">
+                                        <Label FontSize="15" Padding="0" Classes="icon" Content="&#xE3B4;" />
+                                    </Button>
+                                    <Button Classes="error" Width="35" Height="35" BorderThickness="0" Padding="0  0 00.5 0">
+                                        <Label FontSize="15" Padding="0" Classes="icon" Content="&#xE4A8;" />
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                        <Grid >
+                            <StackPanel Orientation="Horizontal" Spacing="20">
+                                <StackPanel Spacing="2">
+                                    <TextBlock Text="My First Project" FontFamily="{DynamicResource Exo2-SemiBold}" FontSize="16"/>
+                                    <TextBlock Text="C:\Users\DomLanLab\Documents\WinRotor\Project1.json" Opacity="0.7" FontSize="12" />
+                                </StackPanel>
+                                
+                                <StackPanel Spacing="8" Margin="0 4 0 0" Orientation="Horizontal">
+                                    <Button Classes="default" Width="35" Height="35" BorderThickness="0">
+                                        <Label FontSize="15" Padding="0" Classes="icon" Content="&#xE3B4;" />
+                                    </Button>
+                                    <Button Classes="error" Width="35" Height="35" BorderThickness="0" Padding="0  0 00.5 0">
+                                        <Label FontSize="15" Padding="0" Classes="icon" Content="&#xE4A8;" />
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                        <Grid >
+                            <StackPanel Orientation="Horizontal" Spacing="20">
+                                <StackPanel Spacing="2">
+                                    <TextBlock Text="My First Project" FontFamily="{DynamicResource Exo2-SemiBold}" FontSize="16"/>
+                                    <TextBlock Text="C:\Users\DomLanLab\Documents\WinRotor\Project1.json" Opacity="0.7" FontSize="12" />
+                                </StackPanel>
+                                
+                                <StackPanel Spacing="8" Margin="0 4 0 0" Orientation="Horizontal">
+                                    <Button Classes="default" Width="35" Height="35" BorderThickness="0">
+                                        <Label FontSize="15" Padding="0" Classes="icon" Content="&#xE3B4;" />
+                                    </Button>
+                                    <Button Classes="error" Width="35" Height="35" BorderThickness="0" Padding="0  0 00.5 0">
+                                        <Label FontSize="15" Padding="0" Classes="icon" Content="&#xE4A8;" />
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                        
+                    </ListBox.Items>
+                </ListBox>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- ListBox -->
+    <Style Selector="ListBox.logs" >
+        <Setter Property="FontFamily" Value="{DynamicResource Exo2-Regular}" />
+        <Setter Property="Background" Value="{DynamicResource Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource OnDefaultButton}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorder}" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="AutoScrollToSelectedItem" Value="True" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+    <Style Selector="ListBox.filePaths" >
+        <Setter Property="Background" Value="{DynamicResource Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource OnDefaultButton}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorder}" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="AutoScrollToSelectedItem" Value="True" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Height" Value="150" />
+    </Style>
+    
+    <!-- Listbox Items Selected -->
+    <Style Selector="ListBox.logs ListBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource DefaultButton}" />
+        <Setter Property="Foreground" Value="{DynamicResource OnDefaultButton}" />
+    </Style>
+    <Style Selector="ListBox.filePaths ListBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource Primary}" />
+        <Setter Property="Foreground" Value="{DynamicResource OnPrimary}" />
+    </Style>
+    
+    <!-- Listbox Items Pointer Over -->
+    <Style Selector="ListBox.logs ListBoxItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource DefaultButton}" />
+        <Setter Property="Foreground" Value="{DynamicResource OnDefaultButton}" />
+    </Style>
+    <Style Selector="ListBox.filePaths ListBoxItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource DefaultButton}" />
+        <Setter Property="Foreground" Value="{DynamicResource OnDefaultButton}" />
+    </Style>
+    
+    <!-- Listbox Item Selected Pointer Over-->
+    <Style Selector="ListBox.logs ListBoxItem:selected:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource DefaultButton}" />
+        <Setter Property="Foreground" Value="{DynamicResource OnDefaultButton}" />
+    </Style>
+    <Style Selector="ListBox.filePaths ListBoxItem:selected:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource Primary}" />
+        <Setter Property="Foreground" Value="{DynamicResource OnPrimary}" />
+    </Style>
+    
+</Styles>

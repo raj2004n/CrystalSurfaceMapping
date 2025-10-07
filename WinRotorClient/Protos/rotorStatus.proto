@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option csharp_namespace = "KohzuServer";
+
+service RotorStatus {
+  rpc TestConnection (IdnRequest) returns (IdnResponse);
+  rpc GetStatus (StrRequest) returns (StrResponse);
+  rpc GetEncoderPosition (RdeRequest) returns (RdeResponse);
+  rpc GetPresentPosition (RdpRequest) returns (RdpResponse);
+}
+
+// Connection Test
+message IdnRequest {
+}
+message IdnResponse {
+  bool result = 1;
+}
+
+// Status Check
+message StrRequest {
+  int32 axisX = 1;
+  int32 axisY = 2;
+  int32 axisZ = 3;
+}
+message StrResponse {
+  string feedbackX = 1;
+  string feedbackY = 2;
+  string feedbackZ = 3;
+}
+
+// Encoder Value Read
+message RdeRequest {
+  int32 axis = 1;
+}
+message RdeResponse {
+  string position = 1;
+}
+
+// Present Position Read
+message RdpRequest {
+  int32 axis = 1;
+}
+message  RdpResponse {
+  string position = 1;
+}

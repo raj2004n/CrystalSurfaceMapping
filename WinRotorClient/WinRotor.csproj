@@ -1,0 +1,102 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.3.4" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.4" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.4" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.4" />
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.4">
+            <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+            <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Avalonia.Xaml.Interactions" Version="11.3.0.6" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+        <PackageReference Include="Google.Protobuf" Version="3.31.1" />
+        <PackageReference Include="Google.Protobuf.Tools" Version="3.31.1" />
+        <PackageReference Include="Grpc.AspNetCore" Version="2.71.0" />
+        <PackageReference Include="Grpc.Net.Client" Version="2.71.0" />
+        <PackageReference Include="Grpc.Tools" Version="2.72.0">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.7" />
+        <PackageReference Include="System.IO.Ports" Version="9.0.7" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="Protos\rotorDrive.proto" GrpcServices="Client" />
+        <Protobuf Include="Protos\rotorStatus.proto" GrpcServices="Client" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="Assets\Images\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AvaloniaResource Include="Assets/Fonts/Exo2-Regular.otf" />
+        <AvaloniaResource Include="Assets/Fonts/Exo2-SemiBold.otf" />
+        <AvaloniaResource Include="Assets/Fonts/digital-7.ttf" />
+        <AvaloniaResource Include="Assets/Fonts/digital-7 (italic).ttf" />
+        <AvaloniaResource Include="Assets/Fonts/digital-7 (mono).ttf" />
+        <AvaloniaResource Include="Assets/Fonts/digital-7 (mono italic).ttf" />
+        <AvaloniaResource Include="Assets/Fonts/Phosphor.ttf" />
+        <AvaloniaResource Include="Assets/Fonts/Phosphor-Duotone.ttf" />
+        <AvaloniaResource Include="Assets/Fonts/Technology.ttf" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\MainView.axaml.cs">
+        <DependentUpon>MainView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Dialogues\ConfirmDialogView.axaml.cs">
+        <DependentUpon>ConfirmDialogView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Dialogues\ConfirmMapDialogView.axaml.cs">
+        <DependentUpon>ConfirmMapDialogView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Dialogues\DialogWindow.axaml.cs">
+        <DependentUpon>DialogWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Dialogues\FoldersDialogView.axaml.cs">
+        <DependentUpon>FoldersDialogView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Dialogues\InfoDialogView.axaml.cs">
+        <DependentUpon>InfoDialogView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Dialogues\LoadFilePathDialogView.axaml.cs">
+        <DependentUpon>LoadFilePathDialogView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\ControlPanelView.axaml.cs">
+        <DependentUpon>ControlPanelView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\HelpView.axaml.cs">
+        <DependentUpon>HelpView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\HomeView.axaml.cs">
+        <DependentUpon>HomeView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\MapView.axaml.cs">
+        <DependentUpon>MapView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+</Project>

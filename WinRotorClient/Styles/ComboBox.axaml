@@ -1,0 +1,58 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20" 
+                Background="{DynamicResource Surface}" 
+                Width="200"
+                Height="400">
+            <!-- Add Controls for Previewer Here -->
+            <StackPanel Margin="20">
+                <ComboBox SelectedIndex="0" MaxDropDownHeight="100">
+                    <ComboBoxItem>Text Item 1</ComboBoxItem>
+                    <ComboBoxItem>Text Item 2</ComboBoxItem>
+                    <ComboBoxItem>Text Item 3</ComboBoxItem>
+                    <ComboBoxItem>Text Item 4</ComboBoxItem>
+                    <ComboBoxItem>Text Item 5</ComboBoxItem>
+                    <ComboBoxItem>Text Item 6</ComboBoxItem>
+                    <ComboBoxItem>Text Item 7</ComboBoxItem>
+                    <ComboBoxItem>Text Item 8</ComboBoxItem>
+                    <ComboBoxItem>Text Item 9</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="ComboBox">
+        <Setter Property="MaxDropDownHeight" Value="100" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="Background" Value="{DynamicResource TextBoxBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorder}" />
+    </Style>
+    
+    
+    
+    <Style Selector="ComboBoxItem">
+        <Setter Property="Background" Value="{DynamicResource TextBoxBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}"/>
+    </Style>
+    
+    <!-- Pointer Over -->
+    <Style Selector="ComboBox:pointerover /template/ Border" >
+        <Setter Property="BorderBrush" Value="{DynamicResource Primary}"/>
+        <Setter Property="Background" Value="{DynamicResource TextBoxBackground}"/>
+    </Style>
+    <Style Selector="ComboBoxItem:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource TextBoxHover}"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+    
+    <!-- Focus -->
+    <Style Selector="ComboBoxItem:focus /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource TextBoxBorder}"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+    
+</Styles>

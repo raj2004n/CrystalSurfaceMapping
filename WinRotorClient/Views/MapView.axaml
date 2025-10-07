@@ -1,0 +1,257 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
+             xmlns:vm="clr-namespace:WinRotor.ViewModels"
+             Background="{DynamicResource Background}"
+             x:DataType="vm:MapViewModel"
+             x:Class="WinRotor.Views.MapView">
+    
+    <Grid RowDefinitions="1*, 1*, 2*" ColumnDefinitions="44*, 39*, 27*" Classes="pageBackground">
+
+        <!-- WinSpec Parameters -->
+        <Border Grid.Row="0" Grid.Column="0"
+                Margin="30 30 15 15"
+                Background="{DynamicResource PanelGradient}"
+                CornerRadius="8">
+            <Grid RowDefinitions="Auto, Auto, Auto" Margin="20" RowSpacing="5">
+                
+                <TextBlock Grid.Row="0" Classes="H1" Text="WinX32" Margin="0 0 0 5"/>
+                
+                <Grid Grid.Row="1" ColumnDefinitions="*, *" ColumnSpacing="10">
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Classes="H2"
+                                   Text="Acquisition Time"/>
+                        <TextBox HorizontalAlignment="Stretch" 
+                                 Watermark="seconds"
+                                 UseFloatingWatermark="True"
+                                 Text="{Binding AcquisitionTime}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Grating Position" Classes="H2" />
+                        <TextBox HorizontalAlignment="Stretch" 
+                                 Watermark="rel cm⁻¹"
+                                 UseFloatingWatermark="True"
+                                 Text="{Binding GratingPos}" />
+                    </StackPanel>
+                </Grid>
+                
+                <Grid Grid.Row="2" ColumnDefinitions="*, *" ColumnSpacing="10">
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Acquisition Number" Classes="H2" />
+                        <TextBox HorizontalAlignment="Stretch" Text="{Binding AcquisitionNumber}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Grating" Classes="H2" />
+                        <ComboBox SelectedItem="{Binding GratingType}" 
+                                  ItemsSource="{Binding Gratings}"
+                                  HorizontalAlignment="Stretch">
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+                
+            </Grid>
+        </Border>
+        
+        <!-- Chamonix Parameters -->
+        <Border Grid.Row="0" Grid.Column="1"
+                Grid.RowSpan="2"
+                Margin="15 30 15 15"
+                Background="{DynamicResource PanelGradient}"
+                CornerRadius="8">
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto" Margin="20" RowSpacing="5">
+                <TextBlock Grid.Row="0" Text="Chamonix" Classes="H1" Margin="0 0 0 5"/>
+                
+                <StackPanel Grid.Row="1" Spacing="5">
+                    <TextBlock Text="Center Position" Classes="H2" />
+                    <Grid ColumnDefinitions="*, *, *" ColumnSpacing="5">
+                        <TextBox Grid.Column="0" 
+                                 HorizontalAlignment="Stretch" 
+                                 Watermark="X [P]" 
+                                 UseFloatingWatermark="True"
+                                 Text="{Binding InitialX}" />
+                        <TextBox Grid.Column="1"
+                                 HorizontalAlignment="Stretch"  
+                                 Watermark="Y [P]" 
+                                 UseFloatingWatermark="True"
+                                 Text="{Binding InitialY}" />
+                        <TextBox Grid.Column="2"
+                                 HorizontalAlignment="Stretch"
+                                 Watermark="Z [P]" 
+                                 UseFloatingWatermark="True"
+                                 Text="{Binding InitialZ}" />
+                    </Grid>
+                    <Button Classes="default" 
+                            Content="Load Current" 
+                            Command="{Binding LoadCurrentPositionCommand}" 
+                            HorizontalAlignment="Right"
+                            Height="25" />
+                </StackPanel>
+                
+                <Grid Grid.Row="2" ColumnDefinitions="*, *" ColumnSpacing="10">
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Classes="H2" Text="Y Grid Points"/>
+                        <TextBox x:Name="GridPointsXTextBox" HorizontalAlignment="Stretch" Text="{Binding GridPointsX}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Classes="H2" Text="Z Grid Points"/>
+                        <TextBox x:Name="GridPointsYTextBox" HorizontalAlignment="Stretch" Text="{Binding GridPointsY}"/>
+                    </StackPanel>
+                </Grid>
+                
+                <Grid Grid.Row="3" ColumnDefinitions="*, *" ColumnSpacing="10">
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Classes="H2" Text="Y Step Size"/>
+                        <TextBox x:Name="StepSizeXTextBox" 
+                                 HorizontalAlignment="Stretch" 
+                                 Watermark="μm"
+                                 UseFloatingWatermark="True"
+                                 Text="{Binding StepsizeX}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Classes="H2" Text="Z Step Size"/>
+                        <TextBox x:Name="StepSizeYTextBox"  
+                                 HorizontalAlignment="Stretch" 
+                                 Watermark="μm"
+                                 UseFloatingWatermark="True"
+                                 Text="{Binding StepsizeY}"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+        
+        <!-- Save Parameters -->
+        <Border Grid.Row="1" Grid.Column="0"
+                Margin="30 15 15 15"
+                Background="{DynamicResource PanelGradient}"
+                CornerRadius="8">
+            
+            <Grid RowDefinitions="Auto, Auto, Auto" Margin="20" RowSpacing="5">
+                <!-- Header -->
+                <TextBlock Grid.Row="0" Classes="H1" Text="Save" Margin="0 0 0 5"/>
+                <!-- Save Name -->
+                <StackPanel Grid.Row="1" VerticalAlignment="Stretch">
+                    <TextBlock Text="Save Name" Classes="H2" />
+                    <TextBox Text="{Binding SaveName}" 
+                             HorizontalAlignment="Stretch" />
+                </StackPanel>
+                <!-- Save Path -->
+                <StackPanel Grid.Row="2" VerticalAlignment="Stretch" >
+                    <TextBlock Text="Save Path" Classes="H2" />
+                    <TextBox Text="{Binding FilePath}" 
+                             HorizontalAlignment="Stretch" />
+                    <!-- Additional Save Paths -->
+                    <StackPanel Margin="0 4 0 0"
+                                Orientation="Horizontal"
+                                Spacing="10"
+                                HorizontalAlignment="Right">
+                        <Button Classes="folder" Command="{Binding DisplaySavedFilePathsCommand}">
+                            <Label Classes="folder" Content="&#xE260;"/>
+                        </Button>
+                        <Button Classes="folder" Command="{Binding AddExistingFilePathCommand}">
+                            <Label Classes="folder" Content="&#xE256;" />
+                        </Button>
+                        <Button Classes="folder" Command="{Binding AddNewFilePathCommand}">
+                            <Label Classes="folder" Content="&#xE258;" />
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+        <!-- Status -->
+        <Border Grid.Row="0" Grid.Column="2"
+                Grid.RowSpan="2"
+                Margin="15 30 30 15"
+                Background="{DynamicResource PanelGradient}"
+                CornerRadius="8">
+            <Grid RowDefinitions="Auto, *, *, *, *, *" Margin="20" RowSpacing="5">
+                <TextBlock Grid.Row="0" Text="Status" Classes="H1" Margin="0 0 0 5"/>
+                <StackPanel Grid.Row="1">
+                    <TextBlock Text="Progress" Classes="H2" />
+                    <ProgressBar
+                                 Minimum="0"
+                                 Maximum="100"
+                                 Value="{Binding ProgressBar}"
+                                 ShowProgressText="True" />
+                </StackPanel>
+                <StackPanel Grid.Row="2">
+                    <TextBlock Text="Current Action" Classes="H2" />
+                    <TextBlock Classes="digital" Text="{Binding CurrentAction}"/>
+                </StackPanel>
+                <StackPanel Grid.Row="3">
+                    <TextBlock Text="Time Elapsed" Classes="H2" />
+                    <TextBlock Classes="digital" Text="{Binding TimeElapsed}"/>
+                </StackPanel>
+                <StackPanel Grid.Row="4">
+                    <TextBlock Text="Expected Finish" Classes="H2" />
+                    <TextBlock Classes="digital" Text="{Binding ExpectedFinish}"/>
+                </StackPanel>
+                <Grid Grid.Row="5" RowDefinitions="*, *" ColumnDefinitions="*, *" RowSpacing="5" ColumnSpacing="10">
+                    <Button Classes="secondary"
+                            Grid.Row="0" Grid.Column="0"
+                            Grid.RowSpan="2"
+                            Content="MAP"
+                            Command="{Binding StartMapCommand}"/>
+                    <Button Classes="error" 
+                            Grid.Row="0" Grid.Column="1"
+                            Content="PAUSE"
+                            Command="{Binding MapCancelCommand}"/>
+                    <Button Classes="default" 
+                            Grid.Row="1" Grid.Column="1"
+                            Content="CONTINUE"
+                            Command="{Binding ContinueCommand}"/>
+                </Grid>
+            </Grid>
+        </Border>
+        
+        <!-- Logs -->
+        <Border Grid.Row="2" Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Margin="30 15 30 30"
+                Background="{DynamicResource PanelGradient}"
+                CornerRadius="8">
+    
+            <Grid RowDefinitions="1*, 5*" Margin="20" RowSpacing="5">
+        
+                <TextBlock Classes="H1" 
+                           Grid.Row="0"
+                           Text="Logs" 
+                           Margin="0 0 0 5"/>
+        
+                <Grid Grid.Row="1" ColumnDefinitions="*, *" ColumnSpacing="20">
+                    
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Classes="H2" Text="Description Log" />
+                        <ListBox Grid.Row="1"
+                                 Classes="logs"
+                                 ItemsSource="{Binding DescLog}"
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                                 VerticalAlignment="Stretch"
+                                 HorizontalAlignment="Stretch"/>
+                    </Grid>
+        
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Classes="H2" Text="Command Log" />
+                        <ListBox Grid.Row="1"
+                                 Classes="logs" 
+                                 ItemsSource="{Binding CmdLog}"
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                                 VerticalAlignment="Stretch"
+                                 HorizontalAlignment="Stretch"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+        
+    </Grid>
+</UserControl>

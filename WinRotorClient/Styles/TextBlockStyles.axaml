@@ -1,0 +1,32 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20" Background="{DynamicResource Surface}" Width="200">
+            <!-- Add Controls for Previewer Here -->
+            <StackPanel Spacing="20">
+                <TextBlock Classes="digital" 
+                         Text="Waiting For Command"/>
+                <TextBlock Classes="digital" 
+                           Text="12:01:57"/>
+                <TextBlock Classes="connection" 
+                           Text="Waiting For Command"/>
+            </StackPanel>
+            
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="TextBlock.digital">
+        <Setter Property="Foreground" Value="{DynamicResource Primary}"/>
+        <Setter Property="FontFamily" Value="{DynamicResource Digital-7}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+    </Style>
+    
+    <Style Selector="TextBlock.connection">
+        <Setter Property="Foreground" Value="{DynamicResource OnDefaultButton}"/>
+        <Setter Property="FontFamily" Value="{DynamicResource Exo2-Regular}"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+</Styles>

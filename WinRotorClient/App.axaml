@@ -1,0 +1,91 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="WinRotor.App"
+             xmlns:local="clr-namespace:WinRotor"
+             xmlns:converters="clr-namespace:WinRotor.Converters"
+             RequestedThemeVariant="Default">
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator></local:ViewLocator>
+    </Application.DataTemplates>
+    
+    <Application.Styles>
+        <FluentTheme />
+        <StyleInclude Source="Styles/AppDefaultStyles.axaml" />
+        <StyleInclude Source="Styles/Buttons.axaml" />
+        <StyleInclude Source="Styles/ComboBox.axaml" />
+        <StyleInclude Source="Styles/HeaderStyles.axaml" />
+        <StyleInclude Source="Styles/TextboxStyles.axaml" />
+        <StyleInclude Source="Styles/TextBlockStyles.axaml" />
+        <StyleInclude Source="Styles/ListBoxStyles.axaml" />
+    </Application.Styles>
+             
+     <Application.Resources>
+         <ResourceDictionary>
+             <ResourceDictionary.MergedDictionaries>
+                 <MergeResourceInclude Source="/Controls/TextBox.axaml"></MergeResourceInclude>
+             </ResourceDictionary.MergedDictionaries>
+         
+             <converters:BooleanToColourConverter x:Key="BooleanToColourConverter" />
+             
+             <!-- Colour Scheme -->
+             <SolidColorBrush x:Key="SidePanelBackground">#1F1B24</SolidColorBrush>
+             <SolidColorBrush x:Key="PrimaryActiveBackground">#BB86FC</SolidColorBrush>
+             
+             
+             <SolidColorBrush x:Key="Primary">#BB86FC</SolidColorBrush>
+             <SolidColorBrush x:Key="PrimaryHover">#A45AF9</SolidColorBrush>
+             <SolidColorBrush x:Key="OnPrimary">#000000</SolidColorBrush>
+             <SolidColorBrush x:Key="OnPrimaryHover">#FFFFFF</SolidColorBrush>
+             <SolidColorBrush x:Key="PrimaryActive">#8E24AA</SolidColorBrush>
+             <SolidColorBrush x:Key="OnPrimaryActive">#FFFFFF</SolidColorBrush>
+             
+             <SolidColorBrush x:Key="TextBoxBackground">#2F2B36</SolidColorBrush>
+             <SolidColorBrush x:Key="TextBoxHover">#241E2D</SolidColorBrush>
+             <SolidColorBrush x:Key="TextBoxForeground">#FFFFFF</SolidColorBrush>
+             <SolidColorBrush x:Key="TextBoxBorder">#403A4E</SolidColorBrush>
+             
+             <SolidColorBrush x:Key="Primary2">#6200EE</SolidColorBrush>
+             
+             <SolidColorBrush x:Key="Secondary">#03DAC6</SolidColorBrush>
+             <SolidColorBrush x:Key="SecondaryHover">#00B3A6</SolidColorBrush>
+             <SolidColorBrush x:Key="OnSecondary">#000000</SolidColorBrush>
+             <SolidColorBrush x:Key="OnSecondaryHover">#000000</SolidColorBrush>
+             
+             <SolidColorBrush x:Key="Background">#121212</SolidColorBrush>
+             <SolidColorBrush x:Key="Surface">#1F1B24</SolidColorBrush>
+             <SolidColorBrush x:Key="SurfaceVariant">#241E2D</SolidColorBrush>
+             
+             <SolidColorBrush x:Key="Error">#CF6679</SolidColorBrush>
+             <SolidColorBrush x:Key="ErrorHover">#BA1B1B</SolidColorBrush>
+             <SolidColorBrush x:Key="OnError">#000000</SolidColorBrush>
+             <SolidColorBrush x:Key="OnErrorHover">#FFFFFF</SolidColorBrush>
+             
+             <SolidColorBrush x:Key="DefaultButton">#2A2A2A</SolidColorBrush>
+             <SolidColorBrush x:Key="DefaultButtonHover">#3A3A3A</SolidColorBrush>
+             <SolidColorBrush x:Key="OnDefaultButton">#CCCCCC</SolidColorBrush>
+             <SolidColorBrush x:Key="OnDefaultButtonHover">#FFFFFF</SolidColorBrush>
+             
+             <SolidColorBrush x:Key="OnBackground">#FFFFFF</SolidColorBrush>
+             <SolidColorBrush x:Key="OnSurface">#FFFFFF</SolidColorBrush>
+             
+             <LinearGradientBrush x:Key="PanelGradient" StartPoint="0%,0%" EndPoint="100%,100%">
+                 <GradientStop Color="#1C1821" Offset="0"/>
+                 <GradientStop Color="#1F1B24" Offset="1"/>
+             </LinearGradientBrush>
+             
+             <!-- Fonts -->
+             <FontFamily x:Key="Exo2-SemiBold">/Assets/Fonts/Exo2-SemiBold.otf#Exo 2 Semi Bold</FontFamily>
+             <FontFamily x:Key="Exo2-Regular">/Assets/Fonts/Exo2-Regular.otf#Exo 2</FontFamily>
+             <FontFamily x:Key="Digital-7">/Assets/Fonts/digital-7.ttf#Digital-7</FontFamily>
+             <FontFamily x:Key="Digital-7 Mono">/Assets/Fonts/digital-7 (mono).ttf#Digital-7 Mono</FontFamily>
+             <FontFamily x:Key="Digital-7 Italic">/Assets/Fonts/digital-7 (italic).ttf#Digital-7 Italic</FontFamily>
+             <FontFamily x:Key="Digital-7 Mono Italic">/Assets/Fonts/digital-7 (mono italic).ttf#Digital-7 Mono Italic</FontFamily>
+             <FontFamily x:Key="Phosphor">/Assets/Fonts/Phosphor.ttf#Phosphor</FontFamily>
+             <FontFamily x:Key="PhosphorDuotone">/Assets/Fonts/Phosphor-Duotone.ttf#Phosphor-Duotone</FontFamily>
+             <FontFamily x:Key="Technology">/Assets/Fonts/Technology.ttf#Technology Regular</FontFamily>
+             
+         </ResourceDictionary>
+     </Application.Resources>
+</Application>

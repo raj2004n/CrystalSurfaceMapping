@@ -1,0 +1,20 @@
+{
+  "profiles": {
+    "WinRotor (Raspberry Pi)": {
+      "commandName": "Executable",
+      "executablePath": "dotnet",
+      "workingDirectory": "$(ProjectDir)",
+      "commandLineArgs": "run",
+      "environmentVariables": {
+        "AVALONIA_DISABLE_X11_INPUT_THREAD": "1",
+        "DISPLAY": ":0"
+      }
+    },
+    "WinRotor (Development)": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

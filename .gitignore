@@ -1,0 +1,26 @@
+# ----------------------------------------------------------------------
+# Build, Dependency, and IDE Configuration Files to Ignore
+# ----------------------------------------------------------------------
+
+# 1. Visual Studio / .NET / C# / VB.NET Build Artifacts
+# Binaries, object files, and intermediate files are always generated.
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio / IDE User Settings and Temporary files
+.vs/
+*.user
+*.suo
+*.sln.ide
+
+# NuGet packages (Restore them instead of tracking them)
+packages/
+# Generated client files (e.g., gRPC C# files) can often be ignored
+# if your build process regenerates them from .proto files.
+# If you track them: delete this section.
+# GeneratedFiles/ 
+# If you use the default gRPC setup, the files are typically in the obj/ folder, which is already ignored.
+
+# 2. LaTeX / Document Generation Files
+# Compiled output (PDF, DVI, etc.) and logs/temp files
+*.pdf

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="App.axaml" value="WinRotor.csproj" />
+        <entry key="Controls/ComboBox.axaml" value="WinRotor.csproj" />
+        <entry key="Controls/TextBox.axaml" value="WinRotor.csproj" />
+        <entry key="MainView.axaml" value="WinRotor.csproj" />
+        <entry key="MainWindow.axaml" value="WinRotor.csproj" />
+        <entry key="Styles/AppDefaultStyles.axaml" value="WinRotor.csproj" />
+        <entry key="Styles/Buttons.axaml" value="WinRotor.csproj" />
+        <entry key="Styles/ComboBox.axaml" value="WinRotor.csproj" />
+        <entry key="Styles/HeaderStyles.axaml" value="WinRotor.csproj" />
+        <entry key="Styles/ListBoxStyles.axaml" value="WinRotor.csproj" />
+        <entry key="Styles/TextBlockStyles.axaml" value="WinRotor.csproj" />
+        <entry key="Styles/TextBox.axaml" value="WinRotor.csproj" />
+        <entry key="Styles/TextboxStyles.axaml" value="WinRotor.csproj" />
+        <entry key="Views/ConfirmDialogView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/ConfirmMapDialogView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/ControlPanelView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/ControlPannelView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Dialog Views/AddExistingFilePathDialogView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Dialog Views/AddFilePathDialogView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Dialog Views/ConfirmDialogView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Dialog Views/ConfirmMapDialogView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Dialog Views/DialogWindow.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Dialog Views/FilesListDialogView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Dialog Views/FoldersDialogView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Dialog Views/InfoDialogView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Dialog Views/LoadFilePathDialogView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/DialogWindow.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Dialogue Views/ConfirmDialogView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/ErrorView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/ErrorWindow.axaml" value="WinRotor.csproj" />
+        <entry key="Views/FoldersDialogView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/GeneralPopUpWindow.axaml" value="WinRotor.csproj" />
+        <entry key="Views/HelpView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/HomeView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/InfoDialogView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/LoadFilePathDialogView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/MainView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/MainViewOld.axaml" value="WinRotor.csproj" />
+        <entry key="Views/MainWindow.axaml" value="WinRotor.csproj" />
+        <entry key="Views/MapView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Measure.axaml" value="WinRotor.csproj" />
+        <entry key="Views/MeasureView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Page Views/HomeView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Page Views/MapView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/PopUpView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/PopUpWindow.axaml" value="WinRotor.csproj" />
+        <entry key="Views/PopupDialog.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Settings.axaml" value="WinRotor.csproj" />
+        <entry key="Views/SettingsView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/Stuff.axaml" value="WinRotor.csproj" />
+        <entry key="Views/StuffView.axaml" value="WinRotor.csproj" />
+        <entry key="Views/WinSpec.axaml" value="WinRotor.csproj" />
+        <entry key="Views/WinSpecView.axaml" value="WinRotor.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

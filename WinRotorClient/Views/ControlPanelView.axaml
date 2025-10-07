@@ -1,0 +1,207 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:WinRotor.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1100" d:DesignHeight="900"
+             Background="{DynamicResource Background}"
+             Foreground="{DynamicResource OnBackground}"
+             x:DataType="vm:ControlPanelViewModel"
+             x:Class="WinRotor.Views.ControlPanelView">
+    
+    <Grid RowDefinitions="*, Auto, Auto, *" 
+          ColumnDefinitions="*, 2*, 2*, *" 
+          Classes="pageBackground">
+
+        <!-- Position Display -->
+        <Border Grid.Row="1" 
+                Grid.Column="1" 
+                Grid.ColumnSpan="2"
+                Margin="0 0 0 15"
+                Padding="20"
+                Background="{DynamicResource PanelGradient}"
+                CornerRadius="8">
+                <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, *">
+                        <TextBlock Grid.Column="0" 
+                                   Grid.Row="0" 
+                                   Grid.ColumnSpan="2"
+                                   Classes="H1" 
+                                   Text="Position" 
+                                   Margin="0 0 0 5"/>
+                        <Grid Grid.Row="1" Grid.Column="0" RowDefinitions="*, *" RowSpacing="10" Margin="5 0 0 0">
+                            <TextBlock Grid.Row="0" Classes="H2" Text="Pulse"/>
+                            <Grid Grid.Row="1" ColumnDefinitions="Auto, Auto, Auto" ColumnSpacing="20" HorizontalAlignment="Left">
+                                <TextBlock Grid.Column="0" 
+                                           Classes="digital"
+                                           Foreground="{DynamicResource OnSurface}"
+                                           Text="{Binding XPos}"/>
+                                <TextBlock Grid.Column="1" 
+                                           Classes="digital"
+                                           Foreground="{DynamicResource OnSurface}"
+                                           Text="{Binding YPos}"/>
+                                <TextBlock Grid.Column="2" 
+                                           Classes="digital"
+                                           Foreground="{DynamicResource OnSurface}"
+                                           Text="{Binding ZPos}"/>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="1" RowDefinitions="*, *" RowSpacing="10" Margin="5 0 0 0">
+                                <TextBlock Grid.Row="0" Classes="H2" Text="Encoder"/>
+                                <Grid Grid.Row="1" ColumnDefinitions="Auto, Auto, Auto" ColumnSpacing="20" HorizontalAlignment="Left">
+                                        <TextBlock Grid.Column="0" 
+                                                   Classes="digital"
+                                                   Foreground="{DynamicResource OnSurface}"
+                                                   Text="{Binding XPosE}"/>
+                                        <TextBlock Grid.Column="1" 
+                                                   Classes="digital"
+                                                   Foreground="{DynamicResource OnSurface}"
+                                                   Text="{Binding YPosE}"/>
+                                        <TextBlock Grid.Column="2" 
+                                                   Classes="digital"
+                                                   Foreground="{DynamicResource OnSurface}"
+                                                   Text="{Binding ZPos}"/>
+                                </Grid>
+                        </Grid>
+                </Grid>
+        </Border>
+
+        
+        <!-- Absolute Position Drive -->
+        <Border Grid.Row="2" 
+                Grid.Column="1"
+                Margin="0 15 15 0"
+                Padding="20"
+                Background="{DynamicResource PanelGradient}"
+                CornerRadius="8">
+                <!-- Control Parameters -->
+                <Grid RowDefinitions="Auto, *, *">
+                        <TextBlock Grid.Row="0" Classes="H1" Text="Absolute Position Drive" Margin="0 0 0 10"/>
+                        <Grid Grid.Row="1" RowDefinitions="*, *"
+                              ColumnDefinitions="Auto, Auto, Auto"
+                              RowSpacing="10"
+                              ColumnSpacing="10"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Center">
+                            <TextBox Grid.Row="0" 
+                                     Grid.Column="0" 
+                                     Watermark="X [P]" 
+                                     UseFloatingWatermark="True"
+                                     Text="{Binding GoToX}"/>
+                            <TextBox Grid.Row="0" 
+                                     Grid.Column="1" 
+                                     Watermark="Y [P]" 
+                                     UseFloatingWatermark="True"
+                                     Text="{Binding GoToY}"/>
+                            <TextBox Grid.Row="0" 
+                                     Grid.Column="2"
+                                     Watermark="Z [P]" 
+                                     UseFloatingWatermark="True"
+                                     Text="{Binding GoToZ}"/>
+                            <Button Grid.Row="1"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="3"
+                                    Classes="secondary"
+                                    Content="Go To Position" 
+                                    Command="{Binding GoToCommand}"/>
+                        </Grid>
+                        <Button VerticalAlignment="Center" 
+                                HorizontalAlignment="Center"
+                                Grid.Row="2" 
+                                Classes="secondary" 
+                                Command="{Binding GoToOriginCommand}"
+                                Content="Return To Origin"/>
+                </Grid>
+        </Border>
+        
+        <!-- Relative Position Drive -->
+        <Border Grid.Row="2" 
+                Grid.Column="2"
+                Margin="15 15 0 0"
+                Padding="20"
+                Background="{DynamicResource PanelGradient}"
+                CornerRadius="8">
+                <Grid RowDefinitions="Auto Auto, *" RowSpacing="10">
+                        <TextBlock Grid.Row="0" Classes="H1" Text="Relative Position Drive"/>
+                        
+                        <!-- Control Box -->
+                        <StackPanel Grid.Row="1">
+                            <Grid ColumnDefinitions="*, *, *"
+                                  RowDefinitions="*, *, *"
+                                  RowSpacing="10"
+                                  ColumnSpacing="10"
+                                  Margin="10">
+                                <Button Content="↑" 
+                                        Grid.Row="0" 
+                                        Grid.Column="1" 
+                                        Classes="move"
+                                        Command="{Binding MoveInDirectionCommand}"
+                                        CommandParameter="up"/>
+                                <Button Content="↖" 
+                                        Grid.Row="0" 
+                                        Grid.Column="0"
+                                        Classes="move"
+                                        Command="{Binding MoveInDirectionCommand}"
+                                        CommandParameter="upLeft"/>
+                                <Button Content="←" 
+                                        Grid.Row="1" 
+                                        Grid.Column="0" 
+                                        Classes="move"
+                                        Command="{Binding MoveInDirectionCommand}"
+                                        CommandParameter="left"/>
+                                <Button Content="↗" 
+                                        Grid.Row="0" 
+                                        Grid.Column="2"
+                                        Classes="move"
+                                        Command="{Binding MoveInDirectionCommand}"
+                                        CommandParameter="upRight"/>
+                                <Grid Grid.Row="1" Grid.Column="1" RowDefinitions="*, *" RowSpacing="5">
+                                    <Button Content="In" 
+                                            Grid.Row="0"
+                                            Padding="0"
+                                            Classes="move"
+                                            Command="{Binding MoveInDirectionCommand}"
+                                            CommandParameter="in"/>
+                                    <Button Content="Out" 
+                                            Grid.Row="1"
+                                            Padding="0"
+                                            Classes="move"
+                                            Command="{Binding MoveInDirectionCommand}"
+                                            CommandParameter="out"/>
+                                </Grid>
+                                <Button Content="→" 
+                                        Grid.Row="1" 
+                                        Grid.Column="2" 
+                                        Classes="move"
+                                        Command="{Binding MoveInDirectionCommand}"
+                                        CommandParameter="right"/>
+                                <Button Content="↘" 
+                                        Grid.Row="2" 
+                                        Grid.Column="2" 
+                                        Classes="move"
+                                        Command="{Binding MoveInDirectionCommand}"
+                                        CommandParameter="downRight"/>
+                                <Button Content="↓" 
+                                        Grid.Row="2" 
+                                        Grid.Column="1" 
+                                        Classes="move"
+                                        Command="{Binding MoveInDirectionCommand}"
+                                        CommandParameter="down"/>
+                                <Button Content="↙" 
+                                        Grid.Row="2" 
+                                        Grid.Column="0" 
+                                        Classes="move"
+                                        Command="{Binding MoveInDirectionCommand}"
+                                        CommandParameter="downLeft"/>
+                            </Grid>
+                        </StackPanel>
+                        <!-- Movement Amount -->
+                        <TextBox Grid.Row="2"
+                                 HorizontalAlignment="Center"
+                                 Watermark="μm"
+                                 UseFloatingWatermark="True"
+                                 Text="{Binding StepSize}"/>
+                </Grid>
+               
+        </Border>
+    </Grid>
+</UserControl>

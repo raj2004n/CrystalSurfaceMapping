@@ -1,0 +1,54 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:WinRotor.ViewModels"
+             mc:Ignorable="d" 
+             Width="300"
+             MinWidth="300"
+             Foreground="{DynamicResource OnSurface}"
+             Background="Transparent"
+             x:DataType="vm:ConfirmDialogViewModel"
+             x:Class="WinRotor.Views.ConfirmDialogView">
+    
+    <Design.DataContext><vm:ConfirmDialogViewModel/></Design.DataContext>
+    
+    <!-- Main Dialog Window -->
+    <Border 
+        Background="{DynamicResource Background}" 
+        CornerRadius="12" 
+        ClipToBounds="True"
+        Margin="15">
+        
+        <StackPanel>
+            
+            <!-- Title -->
+            <Border Background="{DynamicResource SurfaceVariant}" CornerRadius="12 12 0 0">
+                <TextBlock 
+                    Text="{Binding Title}"
+                    Padding="10"
+                    FontSize="18"
+                    FontFamily="{DynamicResource Exo2-SemiBold}"/>
+            </Border>
+             <StackPanel Spacing="20" >
+                 <!-- Description -->
+                <Border Padding="20">
+                    <TextBlock 
+                        Text="{Binding Message}"
+                        FontFamily="{DynamicResource Exo2-Regular}"
+                        TextWrapping="Wrap"/>
+                </Border>
+                
+                <!-- Buttons -->
+                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10" Margin="0 0 10 10">
+                     <Button Classes="cancel"
+                            Content="{Binding CancelText}"
+                            Command="{Binding CancelCommand}"/>
+                     <Button Classes="confirm"
+                            Content="{Binding ConfirmText}"
+                            Command="{Binding ConfirmCommand}"/>
+                 </StackPanel>
+             </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>

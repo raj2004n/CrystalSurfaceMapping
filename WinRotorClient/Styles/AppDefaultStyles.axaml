@@ -1,0 +1,52 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20" Background="{DynamicResource Surface}" Width="200">
+            <!-- Add Controls for Previewer Here -->
+            <StackPanel Spacing="10">
+                <ProgressBar
+                             Minimum="0"
+                             Maximum="100"
+                             Value="14"
+                             ShowProgressText="True" />
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+    
+    <!-- Fonts -->
+    <Style Selector="Window">
+        <Setter Property="FontFamily" Value="{DynamicResource Exo2-Regular}" />
+    </Style>
+    
+    <Style Selector="Grid.pageBackground">
+        <Setter Property="Background">
+            <Setter.Value>
+                <RadialGradientBrush Center="50%,50%" RadiusX="1.5" RadiusY="1.5">
+                    <GradientStop Color="#121212" Offset="0"/>
+                    <GradientStop Color="#0D0D0D" Offset="1"/>
+                </RadialGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style Selector="ProgressBar">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="FontFamily" Value="{DynamicResource Technology}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Foreground">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Color="#BB86FC" Offset="0.0"/>
+                <GradientStop Color="#A45AF9" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Setter>
+    </Style>
+    
+    <Style Selector="ProgressBar /template/ Border">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Width" Duration="0:0:0.1" Easing="SineEaseOut"/>
+            </Transitions>
+        </Setter>
+    </Style>
+  
+</Styles>

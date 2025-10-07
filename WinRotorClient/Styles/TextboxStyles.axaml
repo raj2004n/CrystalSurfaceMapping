@@ -1,0 +1,58 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20" Background="{DynamicResource Surface}" Width="200">
+            <!-- Add Controls for Previewer Here -->
+            <StackPanel Spacing="20">
+                <TextBox Classes="digital" 
+                         Text="Waiting For Command"/>
+                <TextBox Classes="digital" 
+                         Text="12:01:57"/>
+                <TextBox Watermark="seconds"
+                         UseFloatingWatermark="True"
+                         Text="12"
+                         Width="100"/>
+                <TextBox
+                         Text="12"
+                         Width="100"/>
+                
+            </StackPanel>
+            
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="TextBox.digital">
+        <Setter Property="FontFamily" Value="{DynamicResource Digital-7}" />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="FontSize" Value="18" />
+
+    </Style>
+
+    <Style Selector="TextBox">
+        <Setter Property="FontFamily" Value="{DynamicResource Exo2-Regular}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="{DynamicResource TextBoxBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorder}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+    
+    <Style Selector="TextBox:focus /template/ Border" >
+        <Setter Property="Background" Value="{DynamicResource TextBoxBackground}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Primary}"/>
+        <Setter Property="CornerRadius" Value="7"/>
+    </Style>
+
+    <Style Selector="TextBox:pointerover /template/ Border">
+        <Setter Property="Background" Value="{DynamicResource TextBoxBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Primary}"/>
+        <Setter Property="CornerRadius" Value="7"/>
+    </Style>
+    
+</Styles>

@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+option csharp_namespace = "KohzuServer";
+
+service RotorDrive {
+  rpc Rps (RpsRequest) returns (RpsResponse);
+  rpc Mps2 (Mps2Request) returns (Mps2Response);
+  rpc Mps3 (Mps3Request) returns (Mps3Response);
+}
+
+// Relative Position Drive
+message RpsRequest {
+  int32 axis = 1;
+  int32 stepSize = 2;
+}
+message RpsResponse {
+  string feedback = 1;
+}
+
+// Multi-Axis Simultaneous Drive
+message Mps2Request {
+  int32 posY = 1;
+  int32 posZ = 2;
+  int32 drivingType = 3;
+}
+message Mps2Response {
+  string feedback = 1;
+}
+
+message Mps3Request {
+  int32 posX = 1;
+  int32 posY = 2;
+  int32 posZ = 3;
+  int32 drivingType = 4;
+}
+message Mps3Response {
+  string feedback = 1;
+}
+
+// Motor Stop
+message StpRequest {
+  int32 axis = 1;
+  int32 stopMode = 2;
+}
+message StpResponse {
+  string feedback = 1;
+}
+
+
