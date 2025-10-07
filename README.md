@@ -56,9 +56,9 @@ The `WinRotor Client` uses the **MVVM (Model-View-ViewModel)** architectural pat
 
 ---
 
-## Significant Challenges
+## Challenges
 
-The project faced hurdles primarily due to legacy systems and strict operating constraints:
+The project faced problems mainly due to legacy systems and strict operating constraints:
 
 - **Outdated Proprietary Manuals:** The **WinX32 Manual** was severely outdated. This led to significant trial-and-error, as methods documented in the manual were often missing from the provided `WinX32Lib`, and vice-versa.
 - **Inherent Rotational Stage Errors:** An unpredictable hardware error caused one rotational axis to **fail to settle correctly** for small, absolute position displacements, requiring workarounds in the control logic.
