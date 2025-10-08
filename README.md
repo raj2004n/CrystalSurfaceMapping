@@ -28,7 +28,7 @@ The system operates across three physically distinct, heterogenous computing pla
 
 ### The Problem
 
-Manual crystal surface mapping requires repetitive, time-consuming steps: position the sample, take a reading, reposition, and repeat. The goal was to fully automate this sequence:
+Manual crystal surface mapping requires repetitive, time-consuming steps:
 
 1.  Use the rotors to position the sample.
 2.  Use the spectrometer to collect a data reading.
